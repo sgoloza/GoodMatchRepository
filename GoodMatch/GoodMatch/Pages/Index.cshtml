@@ -5,6 +5,49 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Good Macth</h1>
+    <label for="html">Enter Player Name</label>
+    @if (Model.isThereAnError == true)
+    {
+        <div class="alert alert-danger" role="alert">
+            Please Make Sure You Enter Valid Names( eg. Kwanele)
+        </div>
+    }
+    <form method="post" enctype="multipart/form-data">
+        <div class="jumbotron justify-content-center border-danger">
+            <label for="html">Player 1 Name</label>
+            <input asp-for="Player1Name" id="player1Name" type="text" />
+            <label for="html">Player 2 Name</label>
+            <input asp-for="Player2Name" id="player2Name" type="text" /><br /><br />
+            <input id="Submit1" type="submit" value="Show Result" />
+            <br /><br />
+            @if (Model.singleMacthResult != null)
+            {
+
+                <p> @Model.singleMacthResult</p>
+            }
+        </div>
+    </form>
+    <form method="post">
+        <label for="html" class="text-center font-weight-bold">OR</label>
+        <br />
+        <label for="html">Get Names from file and show results </label>
+        <div class="jumbotron justify-content-center border-danger">
+            <input id="Submit2" type="submit" value="Show Result" />
+        </div>
+        <br />
+        @if (Model.sortedResultDictionary != null)
+        {
+            <label for="html">Result</label>
+            <div class="jumbotron border-danger">
+                @foreach (KeyValuePair<int, List<string>> results in Model.sortedResultDictionary)
+                {
+                    foreach (string result in results.Value)
+                    {
+                        <p> @result</p>
+                    }
+                }
+            </div>
+        }
+    </form>
 </div>
