@@ -1,10 +1,9 @@
-Error: Invalid inputs between Jack and 
-Error:Input string was not in a correct format.
-Error:Input string was not in a correct format.
-Error:Input string was not in a correct format.
-Error:Input string was not in a correct format.
-Error:Input string was not in a correct format.
-Error:Unable to cast object of type 'System.Linq.OrderedEnumerable`2[System.Collections.Generic.KeyValuePair`2[System.Int32,System.Collections.Generic.List`1[System.String]],System.Int32]' to type 'System.Collections.Generic.Dictionary`2[System.Int32,System.Collections.Generic.List`1[System.String]]'.
-Error:Unable to cast object of type 'System.Linq.OrderedEnumerable`2[System.Collections.Generic.KeyValuePair`2[System.Int32,System.Collections.Generic.List`1[System.String]],System.Int32]' to type 'System.Collections.Generic.Dictionary`2[System.Int32,System.Collections.Generic.List`1[System.String]]'.
-Error:Unable to cast object of type 'System.Linq.OrderedEnumerable`2[System.Collections.Generic.KeyValuePair`2[System.Int32,System.Collections.Generic.List`1[System.String]],System.Int32]' to type 'System.Collections.Generic.Dictionary`2[System.Int32,System.Collections.Generic.List`1[System.String]]'.
-Error: Invalid inputs between Jack55 and Jill3
+05/12/2021 18:01:01-Error: Invalid inputs between Jack55 and Kwaneleccccccc9
+05/12/2021 18:04:51-Error:Index was outside the bounds of the array.
+05/12/2021 18:05:16-Error:Index was outside the bounds of the array.
+05/12/2021 18:05:23-Error:Index was outside the bounds of the array.05/12/2021 18:28:16-Error:Index was outside the bounds of the array.
+05/12/2021 18:29:01-Error:Index was outside the bounds of the array.
+05/12/2021 18:29:08-Error:Index was outside the bounds of the array.
+05/12/2021 18:29:09-Error:Index was outside the bounds of the array.
+05/12/2021 18:30:16-Error:The process cannot access the file 'C:\Users\Kwanele\source\repos\GoodMatchRepository\GoodMatch\GoodMatch\output.txt' because it is being used by another process.
+05/12/2021 18:30:18-Error:The process cannot access the file 'C:\Users\Kwanele\source\repos\GoodMatchRepository\GoodMatch\GoodMatch\output.txt' because it is being used by another process.

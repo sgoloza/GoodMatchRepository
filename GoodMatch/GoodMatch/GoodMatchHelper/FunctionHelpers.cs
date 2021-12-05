@@ -10,7 +10,7 @@ namespace GoodMatch.GoodMatchHelper
 {
     public class FunctionHelpers
     {
-
+        // Count each Character frequency and returning the result as a string 
         public static async Task<string> CountCharOccurances(string Player1, string Player2)
         {
             try
@@ -31,6 +31,7 @@ namespace GoodMatch.GoodMatchHelper
                     }
                 }
 
+                // Get all the frequencies from the dictionary
                 foreach (KeyValuePair<char, int> myChar in characterOccurances)
                 {
                     resultFromMatch += myChar.Value.ToString();
@@ -40,12 +41,13 @@ namespace GoodMatch.GoodMatchHelper
             }
             catch (Exception ex)
             {
+                
                 await writesLogs("Error:" + ex.Message);
                 return string.Empty;
             }
 
         }
-        // This is a recursive fuction, It will only break if the occurancesOfChars.length is equal to two.
+        // This is a recursive fuction, It will only break if the length occurances of characters is equal to two.
         public static async Task<string> getPercentage(string occurancesOfChars)
         {
             try
@@ -58,6 +60,7 @@ namespace GoodMatch.GoodMatchHelper
                 string _countChars = "";
                 char[] strArray = occurancesOfChars.ToArray();
                 int len = 0;
+                
                 if (strArray.Length % 2 == 0)
                 {
                     len = (strArray.Length / 2);
@@ -95,7 +98,7 @@ namespace GoodMatch.GoodMatchHelper
             }
 
         }
-
+        // Checking if player names consist of only alphabets
         public static async Task<bool> containsOnlyAlphabets(string Player1name, string Player2name)
         {
             try
@@ -107,9 +110,7 @@ namespace GoodMatch.GoodMatchHelper
                 await writesLogs("Error:" + ex.Message);
                 return false;
             }
-
         }
-
         public static async Task<string> writesResultsIntoFile(string Player1Name, string Player2Name, string Percent)
         {
             try
@@ -132,8 +133,9 @@ namespace GoodMatch.GoodMatchHelper
                 await writesLogs("Error:" + ex.Message);
                 return string.Empty;
             }
-
         }
+
+        // Reading player names from a csv file and group them using gender 
         public static async Task<Dictionary<string, List<string>>> readCSVFile()
         {
             try
@@ -149,12 +151,14 @@ namespace GoodMatch.GoodMatchHelper
                         string[] values = line.Split(',');
                         if (values[1].ToLower().Trim().Equals("m"))
                         {
+                            // Chenking if the name already exist
                             if (!groupOfPlayers["Boys"].Contains(values[0].Trim()))
                                 groupOfPlayers["Boys"].Add(values[0].Trim());
 
                         }
                         else
                         {
+                            // Chenking if the name already exist
                             if (!groupOfPlayers["Girls"].Contains(values[0].Trim()))
                                 groupOfPlayers["Girls"].Add(values[0].Trim());
                         }
@@ -164,18 +168,18 @@ namespace GoodMatch.GoodMatchHelper
             }
             catch (Exception ex)
             {
-
                 await writesLogs("Error:" + ex.Message);
                 return new Dictionary<string, List<string>>();
             }
-
         }
+
+        // Writing logs into a text file called logs.txt
         public static async Task writesLogs(string log)
         {
             try
             {
                 using StreamWriter file = new StreamWriter("logs.txt", append: true);
-                await file.WriteLineAsync(log);
+                await file.WriteLineAsync(DateTime.Now+"-"+log);
             }
             catch (Exception ex)
             {
@@ -184,8 +188,8 @@ namespace GoodMatch.GoodMatchHelper
 
             }
         }
-
-        public static IOrderedEnumerable<KeyValuePair<int, List<string>>> ReadOutPutFile()
+        // Sorting result from a text file
+        public static IOrderedEnumerable<KeyValuePair<int, List<string>>> ReadingResultFile()
         {
             Dictionary<int, List<string>> resultlist = new Dictionary<int, List<string>>();
             FileStream fileStream = new FileStream("output.txt", FileMode.Open, FileAccess.Read);
@@ -195,10 +199,13 @@ namespace GoodMatch.GoodMatchHelper
                 while ((line = streamReader.ReadLine()) != null)
                 {
                     string[] token = line.Split(' ');
+                    //Chenking if the pecentage already exist
                     if (resultlist.ContainsKey(Convert.ToInt32(token[3].Trim().Substring(0, 2))))
                     {
+                        // If the percentage already exist I add only Results to the list 
                         string myKey = token[3].Trim().Substring(0, 2);
                         resultlist[Convert.ToInt32(myKey)].Add(line);
+                        //Sorting the list result alpabetically as the percentage is the same
                         resultlist[Convert.ToInt32(myKey)].Sort();
                     }
                     else
@@ -209,7 +216,30 @@ namespace GoodMatch.GoodMatchHelper
                     }
                 }
             }
+            // Sorting the Result  
             return resultlist.OrderByDescending(key => key.Key);
+        }
+        public static async Task WrittingSortedResults(IOrderedEnumerable<KeyValuePair<int, List<string>>> sortedResultDictionary) 
+        {
+            try 
+            {
+                if (File.Exists("output.txt"))
+                {
+                    File.WriteAllText("output.txt", String.Empty);
+                }
+                using StreamWriter file = new StreamWriter("output.txt", append: true);
+                foreach (KeyValuePair<int, List<string>> results in sortedResultDictionary)
+                {
+                    foreach (string result in results.Value)
+                    {
+                        await file.WriteLineAsync(result);
+                    }
+                }
+                
+            } catch ( Exception ex) {
+                await writesLogs("Error:" + ex.Message);
+            }
+        
         }
     }
 }

@@ -26,8 +26,6 @@ namespace GoodMatch.Pages
         public void OnGet(bool error = false)
         {
             isThereAnError = error;
-
-
         }
         public async Task OnPost(string player1Name, string player2Name, string readFromFile)
         {
@@ -37,9 +35,9 @@ namespace GoodMatch.Pages
                 {
                     string charOccurances = FunctionHelpers.CountCharOccurances(player1Name, player2Name).Result;
                     singleMacthResult = await FunctionHelpers.writesResultsIntoFile(player1Name, player2Name, FunctionHelpers.getPercentage(charOccurances).Result);
-
-
-
+                    sortedResultDictionary = FunctionHelpers.ReadingResultFile();
+                   await FunctionHelpers.WrittingSortedResults(sortedResultDictionary);
+                    sortedResultDictionary = null;
                 }
                 else if (player1Name == null && player2Name == null)
                 {
@@ -52,34 +50,27 @@ namespace GoodMatch.Pages
                             {
                                 string charOccurances = FunctionHelpers.CountCharOccurances(groupOfPlayers["Boys"][i], girlName).Result;
                                 await FunctionHelpers.writesResultsIntoFile(groupOfPlayers["Boys"][i], girlName, FunctionHelpers.getPercentage(charOccurances).Result);
-
-                                isThereAnError = false;
                             }
                             else
                             {
                                 await FunctionHelpers.writesLogs("Error: Invalid inputs between " + groupOfPlayers["Boys"][i] + " and " + girlName);
                                 isThereAnError = true;
                             }
-
                         }
                     }
-                    sortedResultDictionary = FunctionHelpers.ReadOutPutFile();
+                    sortedResultDictionary = FunctionHelpers.ReadingResultFile();
                 }
                 else
                 {
                     await FunctionHelpers.writesLogs("Error: Invalid inputs between " + player1Name + " and " + player2Name);
                     isThereAnError = true;
                 }
-
             }
             catch (Exception ex)
             {
                 await FunctionHelpers.writesLogs("Error:" + ex.Message);
                 isThereAnError = true;
             }
-
-
-
         }
     }
 }
