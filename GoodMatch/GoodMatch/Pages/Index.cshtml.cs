@@ -49,7 +49,7 @@ namespace GoodMatch.Pages
                             if (FunctionHelpers.containsOnlyAlphabets(groupOfPlayers["Boys"][i], girlName).Result)
                             {
                                 string charOccurances = FunctionHelpers.CountCharOccurances(groupOfPlayers["Boys"][i], girlName).Result;
-                                await FunctionHelpers.writesResultsIntoFile(groupOfPlayers["Boys"][i], girlName, FunctionHelpers.getPercentage(charOccurances).Result);
+                                await FunctionHelpers.writesResultsIntoFile(groupOfPlayers["Boys"][i], girlName, FunctionHelpers.getPercentage(charOccurances).Result, "Yes");
                             }
                             else
                             {

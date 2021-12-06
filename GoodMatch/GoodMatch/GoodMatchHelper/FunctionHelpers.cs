@@ -111,7 +111,7 @@ namespace GoodMatch.GoodMatchHelper
                 return false;
             }
         }
-        public static async Task<string> writesResultsIntoFile(string Player1Name, string Player2Name, string Percent)
+        public static async Task<string> writesResultsIntoFile(string Player1Name, string Player2Name, string Percent,string groupMatch = "No")
         {
             try
             {
@@ -124,8 +124,15 @@ namespace GoodMatch.GoodMatchHelper
                 {
                     macthResult = Player1Name + " matches " + Player2Name + " " + Percent + "%";
                 }
-                using StreamWriter file = new StreamWriter("output.txt", append: true);
-                await file.WriteLineAsync(macthResult);
+                if (groupMatch.Equals("Yes")) {
+                    using StreamWriter file = new StreamWriter("output.txt", append: true);
+                    await file.WriteLineAsync(macthResult);
+                }
+                else{
+                    using StreamWriter file = new StreamWriter("output.txt", append: false);
+                    await file.WriteLineAsync(macthResult);
+                }
+                
                 return macthResult;
             }
             catch (Exception ex)
@@ -204,6 +211,7 @@ namespace GoodMatch.GoodMatchHelper
                 string line;
                 while ((line = streamReader.ReadLine()) != null)
                 {
+
                     string[] token = line.Split(' ');
                     //Chenking if the pecentage already exist
                     if (resultlist.ContainsKey(Convert.ToInt32(token[3].Trim().Substring(0, 2))))
@@ -220,6 +228,7 @@ namespace GoodMatch.GoodMatchHelper
                         resultlist[Convert.ToInt32(myKey)] = new List<string>();
                         resultlist[Convert.ToInt32(myKey)].Add(line);
                     }
+
                 }
             }
             // Sorting the Result  
@@ -230,7 +239,7 @@ namespace GoodMatch.GoodMatchHelper
             try 
             {
                 ClearFile();
-                using StreamWriter file = new StreamWriter("output.txt", append: true);
+                using StreamWriter file = new StreamWriter("output.txt", append: false);
                 foreach (KeyValuePair<int, List<string>> results in sortedResultDictionary)
                 {
                     foreach (string result in results.Value)
@@ -265,7 +274,7 @@ namespace GoodMatch.GoodMatchHelper
             if (!File.Exists("output.txt"))
                 File.Create("output.txt");
 
-            TextWriter tw = new StreamWriter("output.txt", false);
+            TextWriter tw = new StreamWriter("output.txt", append: false);
             tw.Write("");
             tw.Close();
         }
