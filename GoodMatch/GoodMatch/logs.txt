@@ -1,9 +1,7 @@
-05/12/2021 18:01:01-Error: Invalid inputs between Jack55 and Kwaneleccccccc9
-05/12/2021 18:04:51-Error:Index was outside the bounds of the array.
-05/12/2021 18:05:16-Error:Index was outside the bounds of the array.
-05/12/2021 18:05:23-Error:Index was outside the bounds of the array.05/12/2021 18:28:16-Error:Index was outside the bounds of the array.
-05/12/2021 18:29:01-Error:Index was outside the bounds of the array.
-05/12/2021 18:29:08-Error:Index was outside the bounds of the array.
-05/12/2021 18:29:09-Error:Index was outside the bounds of the array.
-05/12/2021 18:30:16-Error:The process cannot access the file 'C:\Users\Kwanele\source\repos\GoodMatchRepository\GoodMatch\GoodMatch\output.txt' because it is being used by another process.
-05/12/2021 18:30:18-Error:The process cannot access the file 'C:\Users\Kwanele\source\repos\GoodMatchRepository\GoodMatch\GoodMatch\output.txt' because it is being used by another process.
+06/12/2021 10:38:38-Error: Invalid inputs between Jack55 and Kwanele
+06/12/2021 11:04:56-Error: Invalid inputs between Jack and 
+06/12/2021 11:09:09-Duplicates:Jason, m
+06/12/2021 11:10:09- Duplicate found: Jason, m
+06/12/2021 11:11:18- Duplicate found: Jason, m
+06/12/2021 11:11:24- Duplicate found: Jason, m
+06/12/2021 11:11:45- Duplicate found: Jason, m

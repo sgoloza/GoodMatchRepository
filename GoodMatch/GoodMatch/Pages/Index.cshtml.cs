@@ -35,7 +35,7 @@ namespace GoodMatch.Pages
                 {
                     string charOccurances = FunctionHelpers.CountCharOccurances(player1Name, player2Name).Result;
                     singleMacthResult = await FunctionHelpers.writesResultsIntoFile(player1Name, player2Name, FunctionHelpers.getPercentage(charOccurances).Result);
-                    sortedResultDictionary = FunctionHelpers.ReadingResultFile();
+                    sortedResultDictionary = FunctionHelpers.ReadingResultsFile();
                    await FunctionHelpers.WrittingSortedResults(sortedResultDictionary);
                     sortedResultDictionary = null;
                 }
@@ -58,7 +58,7 @@ namespace GoodMatch.Pages
                             }
                         }
                     }
-                    sortedResultDictionary = FunctionHelpers.ReadingResultFile();
+                    sortedResultDictionary = FunctionHelpers.ReadingResultsFile();
                 }
                 else
                 {

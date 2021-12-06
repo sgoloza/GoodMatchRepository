@@ -153,7 +153,13 @@ namespace GoodMatch.GoodMatchHelper
                         {
                             // Chenking if the name already exist
                             if (!groupOfPlayers["Boys"].Contains(values[0].Trim()))
+                            {
                                 groupOfPlayers["Boys"].Add(values[0].Trim());
+                            }
+                            else {
+                                await writesLogs(" Duplicate found: "+ line);
+                            }
+                                
 
                         }
                         else
@@ -189,7 +195,7 @@ namespace GoodMatch.GoodMatchHelper
             }
         }
         // Sorting result from a text file
-        public static IOrderedEnumerable<KeyValuePair<int, List<string>>> ReadingResultFile()
+        public static IOrderedEnumerable<KeyValuePair<int, List<string>>> ReadingResultsFile()
         {
             Dictionary<int, List<string>> resultlist = new Dictionary<int, List<string>>();
             FileStream fileStream = new FileStream("output.txt", FileMode.Open, FileAccess.Read);
@@ -223,10 +229,7 @@ namespace GoodMatch.GoodMatchHelper
         {
             try 
             {
-                if (File.Exists("output.txt"))
-                {
-                    File.WriteAllText("output.txt", String.Empty);
-                }
+                ClearFile();
                 using StreamWriter file = new StreamWriter("output.txt", append: true);
                 foreach (KeyValuePair<int, List<string>> results in sortedResultDictionary)
                 {
@@ -240,6 +243,31 @@ namespace GoodMatch.GoodMatchHelper
                 await writesLogs("Error:" + ex.Message);
             }
         
+        }
+
+        public static List<string> getLogs() {
+
+            List<string> listOsLogs = new List<string>();
+            FileStream fileStream = new FileStream("logs.txt", FileMode.Open, FileAccess.Read);
+            using (StreamReader streamReader = new StreamReader(fileStream, Encoding.UTF8))
+            {
+                string line;
+                while ((line = streamReader.ReadLine()) != null)
+                {
+                    listOsLogs.Add(line);
+                }
+            }
+            return listOsLogs;
+
+         }
+        private static void ClearFile()
+        {
+            if (!File.Exists("output.txt"))
+                File.Create("output.txt");
+
+            TextWriter tw = new StreamWriter("output.txt", false);
+            tw.Write("");
+            tw.Close();
         }
     }
 }
