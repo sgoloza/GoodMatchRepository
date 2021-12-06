@@ -6,15 +6,15 @@
 
 <div class="text-center">
     <h1 class="display-4">Good Macth</h1>
-    <label for="html">Enter Player Name</label>
+    <label for="html">Enter Player Names</label>
     @if (Model.isThereAnError == true)
     {
         <div class="alert alert-danger" role="alert">
-            Please Make Sure You Enter Valid Names( eg. Kwanele)
+            Please Make Sure You Enter Valid Names( eg. Kwanele or check <a asp-page="/Logs">Logs</a>)
         </div>
     }
     <form method="post" enctype="multipart/form-data">
-        <div class="jumbotron justify-content-center border-danger">
+        <div class="jumbotron">
             <label for="html">Player 1 Name</label>
             <input asp-for="Player1Name" id="player1Name" type="text" />
             <label for="html">Player 2 Name</label>
