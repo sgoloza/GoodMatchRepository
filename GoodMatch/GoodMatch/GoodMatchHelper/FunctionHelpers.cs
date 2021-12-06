@@ -173,7 +173,13 @@ namespace GoodMatch.GoodMatchHelper
                         {
                             // Chenking if the name already exist
                             if (!groupOfPlayers["Girls"].Contains(values[0].Trim()))
+                            {
                                 groupOfPlayers["Girls"].Add(values[0].Trim());
+                            }
+                            else
+                            {
+                                await writesLogs(" Duplicate found: " + line);
+                            }
                         }
                     }
                 }
