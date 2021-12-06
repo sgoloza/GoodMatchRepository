@@ -1,7 +1,20 @@
-06/12/2021 10:38:38-Error: Invalid inputs between Jack55 and Kwanele
-06/12/2021 11:04:56-Error: Invalid inputs between Jack and 
-06/12/2021 11:09:09-Duplicates:Jason, m
-06/12/2021 11:10:09- Duplicate found: Jason, m
-06/12/2021 11:11:18- Duplicate found: Jason, m
-06/12/2021 11:11:24- Duplicate found: Jason, m
-06/12/2021 11:11:45- Duplicate found: Jason, m
+06/12/2021 20:29:29-Error: Invalid inputs between Jack and J@ill
+06/12/2021 20:32:14- Duplicate found: Jason, m
+06/12/2021 20:32:17- Duplicate found: Jason, m
+06/12/2021 20:38:09- Duplicate found: Jason, m
+06/12/2021 20:38:19- Duplicate found: Jason, m
+06/12/2021 20:38:28- Duplicate found: Jason, m
+06/12/2021 20:38:45- Duplicate found: Jason, m
+06/12/2021 20:38:47- Duplicate found: Jason, m
+06/12/2021 20:38:51- Duplicate found: Jason, m
+06/12/2021 20:38:54- Duplicate found: Jason, m
+06/12/2021 20:38:58- Duplicate found: Jason, m
+06/12/2021 20:41:06- Duplicate found: Jason, m
+06/12/2021 20:41:12- Duplicate found: Jason, m
+06/12/2021 20:41:30- Duplicate found: Jason, m
+06/12/2021 20:46:48- Duplicate found: Jason, m
+06/12/2021 20:46:51- Duplicate found: Jason, m
+06/12/2021 20:47:14- Duplicate found: Jason, m
+06/12/2021 20:47:21- Duplicate found: Jason, m
+06/12/2021 20:47:32- Duplicate found: Jason, m
+06/12/2021 20:47:49-Error: Invalid inputs between Jack55 and Kwanele
